@@ -26,6 +26,19 @@
     padding: 20px;
   }
 
+  a {
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  @media (max-width: 767px) {
+    .list {
+      grid-template-columns: repeat(2, auto);
+    }
+  }
+
 </style>
 <body>
   <ul class="list"></ul>
@@ -142,7 +155,7 @@
     let a = createNode('a');
     img.src = item.img;
     a.href = `${url}${item.url}`;
-    li.innerHTML = `${item.channel}`;
+    a.innerHTML = `${item.channel}`;
     append(ul, li);
     append(li, a);
     append(a, img);
