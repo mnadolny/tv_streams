@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .list {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    gap: 40px;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  ul {
+    list-style: none;
+  }
+</style>
+<body>
+  <ul class="list"></ul>
+</body>
+<script>
+
+  function createNode(element) {
+    return document.createElement(element);
+  }
+
+  function append(parent, el) {
+    return parent.appendChild(el);
+  }
+
+  const ul = document.querySelector('.list');
+  const url = 'https://voo.memesyndicate.com/sling2222.php?ch=';
+
+  const channels = [
+    {
+      channel: 'nbatv',
+      url: '0e87a84170da4646aa90528abfcbe2a9',
+      img: 'https://upload.wikimedia.org/wikipedia/en/thumb/d/d2/NBA_TV.svg/1200px-NBA_TV.svg.png',
+    },
+    {
+      channel: 'espn',
+      url: 'ca0cad8dbb4a4e68962810d8a6aa8b6a',
+      img: 'https://a1.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fespn_logos%2Fespn_red.png',
+    },
+    {
+      channel: 'comedy',
+      url: '7a0ff80be0c14f4da6b6cc510b9be57b',
+      img: 'https://www.underconsideration.com/brandnew/archives/comedy_central_2018_logo.png',
+    },
+    {
+      channel: 'tlc',
+      url: '793b8cc7bdca43d9acb91432e1ccd24d',
+      img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/TLC_Logo.svg/1200px-TLC_Logo.svg.png',
+    },
+  ]
+
+  channels.forEach(item => {
+    let li = createNode('li');
+    let img = createNode('img');
+    let a = createNode('a');
+    img.src = item.img;
+    a.href = `${url}${item.url}`;
+    li.innerHTML = `${item.channel}`;
+    append(ul, li);
+    append(li, a);
+    append(a, img);
+  })
+
+</script>
+</html>
